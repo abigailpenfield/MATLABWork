@@ -1,0 +1,22 @@
+function [result, varargout] = CalBMI(weight, height)
+%Calculate BMI based on person's height and weight.
+if weight < 0 || height < 0 
+    disp('BMI cannot be calculated with negative measures.') 
+else
+    BMI = weight/(height*height) * 703;
+        if BMI <= 18.5
+            result = 'Underweight';
+            varargout{1} = [1 1 0];
+        elseif BMI > 18.5 && BMI <= 24.9
+            result = 'Normal';
+            varargout{1} = [0 1 0];
+        elseif BMI > 24.9 && BMI <= 29.9
+            result = 'Overweight';
+            varargout{1} = [1 1 0];
+        elseif BMI > 29.9
+            result = 'Obese';
+            varargout{1} = [1 0 0];
+        end
+    end
+end
+end
